@@ -101,7 +101,8 @@
 - **自然语言编辑**：支持以 Vibe 形式口头修改大纲或描述（如"把第三页改成案例分析"），AI 实时响应调整。
 - **大纲/描述模式**：既可一键批量生成，也可手动调整细节。
 
-<img width="1380" height="684" alt="大纲编辑与生成" src="https://github.com/user-attachments/assets/a76cbc57-b688-42e4-bc3a-a75ad3c505f4" />
+<img width="2000" height="1125" alt="image" src="https://github.com/user-attachments/assets/7fc1ecc6-433d-4157-b4ca-95fcebac66ba" />
+
 
 ### 2. 强大的素材解析能力
 - **多格式支持**：上传 PDF/Docx/MD/Txt 等文件，后台自动解析内容。
@@ -115,7 +116,8 @@
 - **局部重绘**：对不满意的区域进行口头式修改（如"把这个图换成饼图"）。
 - **整页优化**：基于 nano banana pro🍌 生成高清、风格统一的页面。
 
-<img width="1920" height="1141" alt="自然语言修改示例" src="https://github.com/user-attachments/assets/0639038a-a06f-445f-8883-896e882f60e9" />
+<img width="2880" height="1620" alt="image" src="https://github.com/user-attachments/assets/9d71b229-84d0-4ffd-9863-3e04b16e3567" />
+
 
 ### 4. 开箱即用的格式导出
 - **多格式支持**：一键导出标准 **PPTX** 或 **PDF** 文件。
