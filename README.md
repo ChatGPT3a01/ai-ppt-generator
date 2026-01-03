@@ -6,6 +6,8 @@
 
 **氛圍編程簡報生成器**
 
+*Vibe Coding PPT Generator - Create stunning presentations with AI*
+
 </div>
 
 ---
