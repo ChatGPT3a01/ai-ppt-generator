@@ -213,7 +213,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ particleEnabled, onParticleTog
               <img src="/logo.png" alt="Logo" className="w-8 h-8 rounded-full object-contain" />
               <div>
                 <div className="text-sm font-semibold text-gray-800">阿亮老師</div>
-                <div className="text-xs text-gray-500">亮言 AI 生成器</div>
+                <div className="text-xs text-gray-500">氛圍編程簡報生成器</div>
               </div>
             </div>
             <div className="flex gap-2 pl-1">

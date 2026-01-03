@@ -4,7 +4,7 @@
 
 # 亮言 · 一鍵成仙
 
-**AI 原生 PPT 生成器**
+**氛圍編程簡報生成器**
 
 </div>
 
@@ -277,7 +277,7 @@ A：可以嘗試在系統設定中調高圖像清晰度。
 
 <div align="center">
 
-**由阿亮老師製作 | 亮言 AI 生成器**
+**由阿亮老師製作 | 亮言 · 一鍵成仙**
 
 [Facebook](https://www.facebook.com/iddmail?locale=zh_TW) · [YouTube](https://www.youtube.com/@Liang-yt02) · [3A科技實驗室](https://www.facebook.com/groups/2754139931432955?locale=zh_TW)
 
