@@ -64,7 +64,6 @@ $env:Path = "C:\Users\user\.local\bin;$env:Path"
 ### Step 3️⃣ 安裝 Python 依賴
 
 ```bash
-cd D:\Anti\20260103002\banana-slides
 uv sync
 ```
 
@@ -114,7 +113,7 @@ uv run python app.py
 👉 **開新的終端機視窗**（或在編輯器中「分割終端機」）
 
 ```bash
-cd D:\Anti\20260103002\banana-slides\frontend
+cd frontend
 npm install
 npm run dev
 ```
