@@ -6,14 +6,6 @@
 
 **AI 原生 PPT 生成器**
 
-*Vibe your PPT like vibing code.*
-
-[![GitHub Stars](https://img.shields.io/github/stars/ChatGPT3a01/ai-ppt-generator?style=flat-square)](https://github.com/ChatGPT3a01/ai-ppt-generator/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/ChatGPT3a01/ai-ppt-generator?style=flat-square)](https://github.com/ChatGPT3a01/ai-ppt-generator/network)
-[![Version](https://img.shields.io/badge/version-v1.0.0-4CAF50.svg?style=flat-square)](https://github.com/ChatGPT3a01/ai-ppt-generator)
-
-**🎯 降低 PPT 製作門檻，讓每個人都能快速創作出美觀專業的演示文稿**
-
 </div>
 
 ---
@@ -225,27 +217,6 @@ npm run dev
 - 創作中心：首頁
 - 歷史專案：查看過去的專案
 - 系統設定：配置 API 和其他參數
-
----
-
-## 🐳 Docker 部署（進階）
-
-如果你想使用 Docker 部署，可以執行：
-
-```bash
-# 複製環境變數
-cp .env.example .env
-
-# 編輯 .env 設定 API Key
-notepad .env
-
-# 啟動服務
-docker compose up -d
-```
-
-訪問：
-- 前端：http://localhost:3000
-- 後端 API：http://localhost:5000
 
 ---
 
