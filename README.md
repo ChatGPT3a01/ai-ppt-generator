@@ -43,14 +43,16 @@
 
 ## 📦 安裝部署教學
 
-### 步驟 1：下載專案
+### Step 1️⃣ 下載專案
 
 ```bash
 git clone https://github.com/ChatGPT3a01/ai-ppt-generator.git
 cd ai-ppt-generator
 ```
 
-### 步驟 2：設定 PATH（讓 uv 指令生效）
+---
+
+### Step 2️⃣ 設定 PATH（讓 uv 指令生效）
 
 在 PowerShell 中執行：
 
@@ -63,20 +65,18 @@ $env:Path = "C:\Users\user\.local\bin;$env:Path"
 > powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 > ```
 
-### 步驟 3：安裝 Python 依賴
+---
+
+### Step 3️⃣ 安裝 Python 依賴
 
 ```bash
-cd ai-ppt-generator
+cd D:\Anti\20260103002\banana-slides
 uv sync
 ```
 
-### 步驟 4：配置環境變數
+---
 
-複製環境變數範本：
-
-```bash
-cp .env.example .env
-```
+### Step 4️⃣ 配置環境變數
 
 編輯 `.env` 檔案，設定你的 API Key：
 
@@ -92,14 +92,14 @@ AI_PROVIDER_FORMAT=gemini    # 或 openai
 
 # Gemini 格式配置（使用 Gemini 時設定）
 GOOGLE_API_KEY=你的API金鑰
-GOOGLE_API_BASE=https://generativelanguage.googleapis.com
 
 # OpenAI 格式配置（使用 OpenAI 時設定）
-OPENAI_API_KEY=你的API金鑰
-OPENAI_API_BASE=https://api.openai.com/v1
+# OPENAI_API_KEY=你的API金鑰
 ```
 
-### 步驟 5：啟動後端
+---
+
+### Step 5️⃣ 啟動後端（Flask）
 
 ```bash
 cd backend
@@ -107,21 +107,44 @@ uv run alembic upgrade head
 uv run python app.py
 ```
 
-✅ 後端啟動成功後會顯示：`http://localhost:5000`
+**✅ 成功畫面特徵：**
+- 顯示 Flask 啟動訊息
+- 出現網址：`http://localhost:5000`
 
-### 步驟 6：啟動前端（開新的終端機視窗）
+> 📌 **這個終端請保持開啟！**
+
+---
+
+### Step 6️⃣ 啟動前端（React / Vite）
+
+👉 **開新的終端機視窗**（或在編輯器中「分割終端機」）
 
 ```bash
-cd ai-ppt-generator/frontend
+cd D:\Anti\20260103002\banana-slides\frontend
 npm install
 npm run dev
 ```
 
-✅ 前端啟動成功後會顯示：`http://localhost:3000`
+**✅ 成功畫面特徵：**
+- 顯示 Vite dev server 啟動
+- 出現網址：`http://localhost:3000`
 
-### 步驟 7：開始使用
+> 📌 **這個終端也請保持開啟！**
 
-打開瀏覽器，訪問 **http://localhost:3000** 即可使用！
+---
+
+### Step 7️⃣ 開始使用
+
+打開瀏覽器，進入：
+
+👉 **http://localhost:3000**
+
+**🎉 系統運作流程：**
+```
+前端（3000）→ 呼叫後端（5000）→ 後端呼叫 AI API（Gemini / OpenAI）
+```
+
+恭喜！亮言 · 一鍵成仙 正式跑起來了！
 
 ---
 
