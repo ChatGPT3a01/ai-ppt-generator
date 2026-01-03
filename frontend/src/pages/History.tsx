@@ -260,7 +260,7 @@ export const History: React.FC = () => {
             <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-banana-500 to-banana-600 rounded-lg flex items-center justify-center text-xl md:text-2xl">
               🍌
             </div>
-            <span className="text-lg md:text-xl font-bold text-gray-900">蕉幻</span>
+            <span className="text-lg md:text-xl font-bold text-gray-900">亮言</span>
           </div>
           <div className="flex items-center gap-2 md:gap-4">
             <Button
@@ -281,13 +281,13 @@ export const History: React.FC = () => {
       <main className="max-w-6xl mx-auto px-3 md:px-4 py-6 md:py-8">
         <div className="mb-6 md:mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2">历史项目</h1>
-            <p className="text-sm md:text-base text-gray-600">查看和管理你的所有项目</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2">歷史專案</h1>
+            <p className="text-sm md:text-base text-gray-600">查看和管理你的所有專案</p>
           </div>
           {projects.length > 0 && selectedProjects.size > 0 && (
             <div className="flex items-center gap-3">
               <span className="text-sm text-gray-600">
-                已选择 {selectedProjects.size} 项
+                已選擇 {selectedProjects.size} 項
               </span>
               <Button
                 variant="secondary"
@@ -295,7 +295,7 @@ export const History: React.FC = () => {
                 onClick={() => setSelectedProjects(new Set())}
                 disabled={isDeleting}
               >
-                取消选择
+                取消選擇
               </Button>
               <Button
                 variant="secondary"
@@ -305,7 +305,7 @@ export const History: React.FC = () => {
                 disabled={isDeleting}
                 loading={isDeleting}
               >
-                批量删除
+                批量刪除
               </Button>
             </div>
           )}
@@ -313,32 +313,32 @@ export const History: React.FC = () => {
 
         {isLoading ? (
           <div className="flex items-center justify-center py-12">
-            <Loading message="加载中..." />
+            <Loading message="載入中..." />
           </div>
         ) : error ? (
           <Card className="p-8 text-center">
             <div className="text-6xl mb-4">⚠️</div>
             <p className="text-gray-600 mb-4">{error}</p>
             <Button variant="primary" onClick={loadProjects}>
-              重试
+              重試
             </Button>
           </Card>
         ) : projects.length === 0 ? (
           <Card className="p-12 text-center">
             <div className="text-6xl mb-4">📭</div>
             <h3 className="text-xl font-semibold text-gray-700 mb-2">
-              暂无历史项目
+              暫無歷史專案
             </h3>
             <p className="text-gray-500 mb-6">
-              创建你的第一个项目开始使用吧
+              建立你的第一個專案開始使用吧
             </p>
             <Button variant="primary" onClick={() => navigate('/')}>
-              创建新项目
+              建立新專案
             </Button>
           </Card>
         ) : (
           <div className="space-y-4">
-            {/* 全选工具栏 */}
+            {/* 全選工具欄 */}
             {projects.length > 0 && (
               <div className="flex items-center gap-3 pb-2 border-b border-gray-200">
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -349,7 +349,7 @@ export const History: React.FC = () => {
                     className="w-4 h-4 text-banana-600 border-gray-300 rounded focus:ring-banana-500"
                   />
                   <span className="text-sm text-gray-700">
-                    {selectedProjects.size === projects.length ? '取消全选' : '全选'}
+                    {selectedProjects.size === projects.length ? '取消全選' : '全選'}
                   </span>
                 </label>
               </div>

@@ -21,5 +21,7 @@ export { ShimmerOverlay } from './ShimmerOverlay';
 export { ImagePreviewList } from './ImagePreviewList';
 export { ProjectResourcesList } from './ProjectResourcesList';
 export { ProjectSettingsModal } from './ProjectSettingsModal';
+export { ParticleEffect } from './ParticleEffect';
+export { Sidebar } from './Sidebar';
 
 

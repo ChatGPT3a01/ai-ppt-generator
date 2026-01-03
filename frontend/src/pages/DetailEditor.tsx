@@ -148,18 +148,18 @@ export const DetailEditor: React.FC = () => {
               <span className="hidden sm:inline">返回</span>
             </Button>
             <div className="flex items-center gap-1.5 md:gap-2">
-              <span className="text-xl md:text-2xl">🍌</span>
-              <span className="text-base md:text-xl font-bold">蕉幻</span>
+              <img src="/logo.png" alt="亮言" className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-contain" />
+              <span className="text-base md:text-xl font-bold">亮言</span>
             </div>
             <span className="text-gray-400 hidden lg:inline">|</span>
-            <span className="text-sm md:text-lg font-semibold hidden lg:inline">编辑页面描述</span>
+            <span className="text-sm md:text-lg font-semibold hidden lg:inline">編輯頁面描述</span>
           </div>
           
-          {/* 中间：AI 修改输入框 */}
+          {/* 中間：AI 修改輸入框 */}
           <div className="flex-1 max-w-xl mx-auto hidden md:block md:-translate-x-3 pr-10">
             <AiRefineInput
               title=""
-              placeholder="例如：让描述更详细、删除第2页的某个要点、强调XXX的重要性... · Ctrl+Enter提交"
+              placeholder="例如：讓描述更詳細、刪除第2頁的某個要點、強調XXX的重要性... · Ctrl+Enter提交"
               onSubmit={handleAiRefineDescriptions}
               disabled={false}
               className="!p-0 !bg-transparent !border-0"
@@ -167,7 +167,7 @@ export const DetailEditor: React.FC = () => {
             />
           </div>
           
-          {/* 右侧：操作按钮 */}
+          {/* 右側：操作按鈕 */}
           <div className="flex items-center gap-1.5 md:gap-2 flex-shrink-0">
             <Button
               variant="secondary"
@@ -186,16 +186,16 @@ export const DetailEditor: React.FC = () => {
               disabled={!hasAllDescriptions}
               className="text-xs md:text-sm"
             >
-              <span className="hidden sm:inline">生成图片</span>
+              <span className="hidden sm:inline">生成圖片</span>
             </Button>
           </div>
         </div>
         
-        {/* 移动端：AI 输入框 */}
+        {/* 行動端：AI 輸入框 */}
         <div className="mt-2 md:hidden">
           <AiRefineInput
             title=""
-            placeholder="例如：让描述更详细... · Ctrl+Enter"
+            placeholder="例如：讓描述更詳細... · Ctrl+Enter"
             onSubmit={handleAiRefineDescriptions}
             disabled={false}
             className="!p-0 !bg-transparent !border-0"
@@ -204,7 +204,7 @@ export const DetailEditor: React.FC = () => {
         </div>
       </header>
 
-      {/* 操作栏 */}
+      {/* 操作欄 */}
       <div className="bg-white border-b border-gray-200 px-3 md:px-6 py-3 md:py-4 flex-shrink-0">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-3">
           <div className="flex items-center gap-2 sm:gap-3 flex-1">
@@ -218,16 +218,16 @@ export const DetailEditor: React.FC = () => {
             </Button>
             <span className="text-xs md:text-sm text-gray-500 whitespace-nowrap">
               {currentProject.pages.filter((p) => p.description_content).length} /{' '}
-              {currentProject.pages.length} 页已完成
+              {currentProject.pages.length} 頁已完成
             </span>
           </div>
         </div>
       </div>
 
-      {/* 主内容区 */}
+      {/* 主內容區 */}
       <main className="flex-1 p-3 md:p-6 overflow-y-auto min-h-0">
         <div className="max-w-7xl mx-auto">
-          {/* 项目资源列表（文件和图片） */}
+          {/* 專案資源列表（檔案和圖片） */}
           <ProjectResourcesList
             projectId={projectId || null}
             onFileClick={setPreviewFileId}
@@ -239,17 +239,17 @@ export const DetailEditor: React.FC = () => {
             <div className="text-center py-12 md:py-20">
               <div className="flex justify-center mb-4"><FileText size={48} className="text-gray-300" /></div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-700 mb-2">
-                还没有页面
+                還沒有頁面
               </h3>
               <p className="text-sm md:text-base text-gray-500 mb-6">
-                请先返回大纲编辑页添加页面
+                請先返回大綱編輯頁新增頁面
               </p>
               <Button
                 variant="primary"
                 onClick={() => navigate(`/project/${projectId}/outline`)}
                 className="text-sm md:text-base"
               >
-                返回大纲编辑
+                返回大綱編輯
               </Button>
             </div>
           ) : (

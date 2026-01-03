@@ -687,7 +687,7 @@ export const SlidePreview: React.FC = () => {
             onClick={() => navigate('/')}
             className="hidden sm:inline-flex flex-shrink-0"
           >
-            <span className="hidden md:inline">主页</span>
+            <span className="hidden md:inline">首頁</span>
           </Button>
           <Button
             variant="ghost"
@@ -705,11 +705,11 @@ export const SlidePreview: React.FC = () => {
             <span className="hidden sm:inline">返回</span>
           </Button>
           <div className="flex items-center gap-1.5 md:gap-2 min-w-0">
-            <span className="text-xl md:text-2xl">🍌</span>
-            <span className="text-base md:text-xl font-bold truncate">蕉幻</span>
+            <img src="/logo.png" alt="亮言" className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-contain" />
+            <span className="text-base md:text-xl font-bold truncate">亮言</span>
           </div>
           <span className="text-gray-400 hidden md:inline">|</span>
-          <span className="text-sm md:text-lg font-semibold truncate hidden sm:inline">预览</span>
+          <span className="text-sm md:text-lg font-semibold truncate hidden sm:inline">預覽</span>
         </div>
         <div className="flex items-center gap-1 md:gap-3 flex-shrink-0">
           <Button
@@ -719,7 +719,7 @@ export const SlidePreview: React.FC = () => {
             onClick={() => setIsProjectSettingsOpen(true)}
             className="hidden lg:inline-flex"
           >
-            <span className="hidden xl:inline">项目设置</span>
+            <span className="hidden xl:inline">專案設定</span>
           </Button>
           <Button
             variant="ghost"
@@ -728,7 +728,7 @@ export const SlidePreview: React.FC = () => {
             onClick={() => setIsTemplateModalOpen(true)}
             className="hidden lg:inline-flex"
           >
-            <span className="hidden xl:inline">更换模板</span>
+            <span className="hidden xl:inline">更換模板</span>
           </Button>
           <Button
             variant="ghost"
@@ -756,7 +756,7 @@ export const SlidePreview: React.FC = () => {
             disabled={isRefreshing}
             className="hidden md:inline-flex"
           >
-            <span className="hidden lg:inline">刷新</span>
+            <span className="hidden lg:inline">重新整理</span>
           </Button>
           <div className="relative">
             <Button
@@ -767,8 +767,8 @@ export const SlidePreview: React.FC = () => {
               disabled={!hasAllImages}
               className="text-xs md:text-sm"
             >
-              <span className="hidden sm:inline">导出</span>
-              <span className="sm:hidden">导出</span>
+              <span className="hidden sm:inline">匯出</span>
+              <span className="sm:hidden">匯出</span>
             </Button>
             {showExportMenu && (
               <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-10">
@@ -776,19 +776,19 @@ export const SlidePreview: React.FC = () => {
                   onClick={() => handleExport('pptx')}
                   className="w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors text-sm"
                 >
-                  导出为 PPTX
+                  匯出為 PPTX
                 </button>
                 <button
                   onClick={() => handleExport('editable-pptx')}
                   className="w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors text-sm"
                 >
-                  导出可编辑 PPTX（不稳定测试版）
+                  匯出可編輯 PPTX（不穩定測試版）
                 </button>
                 <button
                   onClick={() => handleExport('pdf')}
                   className="w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors text-sm"
                 >
-                  导出为 PDF
+                  匯出為 PDF
                 </button>
               </div>
             )}
@@ -796,9 +796,9 @@ export const SlidePreview: React.FC = () => {
         </div>
       </header>
 
-      {/* 主内容区 */}
+      {/* 主內容區 */}
       <div className="flex-1 flex flex-col md:flex-row overflow-hidden min-w-0 min-h-0">
-        {/* 左侧：缩略图列表 */}
+        {/* 左側：縮圖列表 */}
         <aside className="w-full md:w-80 bg-white border-b md:border-b-0 md:border-r border-gray-200 flex flex-col flex-shrink-0">
           <div className="p-3 md:p-4 border-b border-gray-200 flex-shrink-0 space-y-2 md:space-y-3">
             <Button
@@ -807,11 +807,11 @@ export const SlidePreview: React.FC = () => {
               onClick={handleGenerateAll}
               className="w-full text-sm md:text-base"
             >
-              批量生成图片 ({currentProject.pages.length})
+              批量生成圖片 ({currentProject.pages.length})
             </Button>
           </div>
           
-          {/* 缩略图列表：桌面端垂直，移动端横向滚动 */}
+          {/* 縮圖列表：桌面端垂直，行動端橫向滾動 */}
           <div className="flex-1 overflow-y-auto md:overflow-y-auto overflow-x-auto md:overflow-x-visible p-3 md:p-4 min-h-0">
             <div className="flex md:flex-col gap-2 md:gap-4 min-w-max md:min-w-0">
               {currentProject.pages.map((page, index) => (
@@ -858,30 +858,30 @@ export const SlidePreview: React.FC = () => {
           </div>
         </aside>
 
-        {/* 右侧：大图预览 */}
+        {/* 右側：大圖預覽 */}
         <main className="flex-1 flex flex-col bg-gradient-to-br from-banana-50 via-white to-gray-50 min-w-0 overflow-hidden">
           {currentProject.pages.length === 0 ? (
             <div className="flex-1 flex items-center justify-center overflow-y-auto">
               <div className="text-center">
                 <div className="text-4xl md:text-6xl mb-4">📊</div>
                 <h3 className="text-lg md:text-xl font-semibold text-gray-700 mb-2">
-                  还没有页面
+                  還沒有頁面
                 </h3>
                 <p className="text-sm md:text-base text-gray-500 mb-6">
-                  请先返回编辑页面添加内容
+                  請先返回編輯頁面新增內容
                 </p>
                 <Button
                   variant="primary"
                   onClick={() => navigate(`/project/${projectId}/outline`)}
                   className="text-sm md:text-base"
                 >
-                  返回编辑
+                  返回編輯
                 </Button>
               </div>
             </div>
           ) : (
             <>
-              {/* 预览区 */}
+              {/* 預覽區 */}
               <div className="flex-1 overflow-y-auto min-h-0 flex items-center justify-center p-4 md:p-8">
                 <div className="max-w-5xl w-full">
                   <div className="relative aspect-video bg-white rounded-lg shadow-xl overflow-hidden touch-manipulation">
@@ -901,15 +901,15 @@ export const SlidePreview: React.FC = () => {
                               ? '正在生成中...'
                               : selectedPage?.status === 'GENERATING'
                               ? '正在生成中...'
-                              : '尚未生成图片'}
+                              : '尚未生成圖片'}
                           </p>
-                          {(!selectedPage?.id || !pageGeneratingTasks[selectedPage.id]) && 
+                          {(!selectedPage?.id || !pageGeneratingTasks[selectedPage.id]) &&
                            selectedPage?.status !== 'GENERATING' && (
                             <Button
                               variant="primary"
                               onClick={handleRegeneratePage}
                             >
-                              生成此页
+                              生成此頁
                             </Button>
                           )}
                         </div>
@@ -919,10 +919,10 @@ export const SlidePreview: React.FC = () => {
                 </div>
               </div>
 
-              {/* 控制栏 */}
+              {/* 控制欄 */}
               <div className="bg-white border-t border-gray-200 px-3 md:px-6 py-3 md:py-4 flex-shrink-0">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3 max-w-5xl mx-auto">
-                  {/* 导航 */}
+                  {/* 導航 */}
                   <div className="flex items-center gap-2 w-full sm:w-auto justify-center">
                     <Button
                       variant="ghost"
@@ -932,8 +932,8 @@ export const SlidePreview: React.FC = () => {
                       disabled={selectedIndex === 0}
                       className="text-xs md:text-sm"
                     >
-                      <span className="hidden sm:inline">上一页</span>
-                      <span className="sm:hidden">上一页</span>
+                      <span className="hidden sm:inline">上一頁</span>
+                      <span className="sm:hidden">上一頁</span>
                     </Button>
                     <span className="px-2 md:px-4 text-xs md:text-sm text-gray-600 whitespace-nowrap">
                       {selectedIndex + 1} / {currentProject.pages.length}
@@ -950,23 +950,23 @@ export const SlidePreview: React.FC = () => {
                       disabled={selectedIndex === currentProject.pages.length - 1}
                       className="text-xs md:text-sm"
                     >
-                      <span className="hidden sm:inline">下一页</span>
-                      <span className="sm:hidden">下一页</span>
+                      <span className="hidden sm:inline">下一頁</span>
+                      <span className="sm:hidden">下一頁</span>
                     </Button>
                   </div>
 
                   {/* 操作 */}
                   <div className="flex items-center gap-1.5 md:gap-2 w-full sm:w-auto justify-center">
-                    {/* 手机端：模板更换按钮 */}
+                    {/* 行動端：模板更換按鈕 */}
                     <Button
                       variant="ghost"
                       size="sm"
                       icon={<Upload size={16} />}
                       onClick={() => setIsTemplateModalOpen(true)}
                       className="lg:hidden text-xs"
-                      title="更换模板"
+                      title="更換模板"
                     />
-                    {/* 手机端：素材生成按钮 */}
+                    {/* 行動端：素材生成按鈕 */}
                     <Button
                       variant="ghost"
                       size="sm"
@@ -975,7 +975,7 @@ export const SlidePreview: React.FC = () => {
                       className="lg:hidden text-xs"
                       title="素材生成"
                     />
-                    {/* 手机端：刷新按钮 */}
+                    {/* 行動端：重新整理按鈕 */}
                     <Button
                       variant="ghost"
                       size="sm"
@@ -983,7 +983,7 @@ export const SlidePreview: React.FC = () => {
                       onClick={handleRefresh}
                       disabled={isRefreshing}
                       className="md:hidden text-xs"
-                      title="刷新"
+                      title="重新整理"
                     />
                     {imageVersions.length > 1 && (
                       <div className="relative">
@@ -993,7 +993,7 @@ export const SlidePreview: React.FC = () => {
                           onClick={() => setShowVersionMenu(!showVersionMenu)}
                           className="text-xs md:text-sm"
                         >
-                          <span className="hidden md:inline">历史版本 ({imageVersions.length})</span>
+                          <span className="hidden md:inline">歷史版本 ({imageVersions.length})</span>
                           <span className="md:hidden">版本</span>
                         </Button>
                         {showVersionMenu && (
@@ -1012,7 +1012,7 @@ export const SlidePreview: React.FC = () => {
                                   </span>
                                   {version.is_current && (
                                     <span className="text-xs text-banana-600 font-medium">
-                                      (当前)
+                                      (目前)
                                     </span>
                                   )}
                                 </div>
@@ -1039,7 +1039,7 @@ export const SlidePreview: React.FC = () => {
                       disabled={!selectedPage?.generated_image_path}
                       className="text-xs md:text-sm flex-1 sm:flex-initial"
                     >
-                      编辑
+                      編輯
                     </Button>
                     <Button
                       variant="ghost"
@@ -1060,11 +1060,11 @@ export const SlidePreview: React.FC = () => {
         </main>
       </div>
 
-      {/* 编辑对话框 */}
+      {/* 編輯對話框 */}
       <Modal
         isOpen={isEditModalOpen}
         onClose={() => setIsEditModalOpen(false)}
-        title="编辑页面"
+        title="編輯頁面"
         size="lg"
       >
         <div className="space-y-4">

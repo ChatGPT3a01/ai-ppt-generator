@@ -182,18 +182,18 @@ export const OutlineEditor: React.FC = () => {
               <span className="hidden sm:inline">返回</span>
             </Button>
             <div className="flex items-center gap-1.5 md:gap-2">
-              <span className="text-xl md:text-2xl">🍌</span>
-              <span className="text-base md:text-xl font-bold">蕉幻</span>
+              <img src="/logo.png" alt="亮言" className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-contain" />
+              <span className="text-base md:text-xl font-bold">亮言</span>
             </div>
             <span className="text-gray-400 hidden lg:inline">|</span>
-            <span className="text-sm md:text-lg font-semibold hidden lg:inline">编辑大纲</span>
+            <span className="text-sm md:text-lg font-semibold hidden lg:inline">編輯大綱</span>
           </div>
           
-          {/* 中间：AI 修改输入框 */}
+          {/* 中間：AI 修改輸入框 */}
           <div className="flex-1 max-w-xl mx-auto hidden md:block md:-translate-x-2 pr-10">
             <AiRefineInput
               title=""
-              placeholder="例如：增加一页关于XXX的内容、删除第3页、合并前两页... · Ctrl+Enter提交"
+              placeholder="例如：增加一頁關於XXX的內容、刪除第3頁、合併前兩頁... · Ctrl+Enter提交"
               onSubmit={handleAiRefineOutline}
               disabled={false}
               className="!p-0 !bg-transparent !border-0"
@@ -201,16 +201,16 @@ export const OutlineEditor: React.FC = () => {
             />
           </div>
           
-          {/* 右侧：操作按钮 */}
+          {/* 右側：操作按鈕 */}
           <div className="flex items-center gap-1.5 md:gap-2 flex-shrink-0">
-            <Button 
-              variant="secondary" 
-              size="sm" 
+            <Button
+              variant="secondary"
+              size="sm"
               icon={<Save size={16} className="md:w-[18px] md:h-[18px]" />}
               onClick={async () => await saveAllPages()}
               className="hidden md:inline-flex"
             >
-              <span className="hidden lg:inline">保存</span>
+              <span className="hidden lg:inline">儲存</span>
             </Button>
             <Button
               variant="primary"
@@ -224,11 +224,11 @@ export const OutlineEditor: React.FC = () => {
           </div>
         </div>
         
-        {/* 移动端：AI 输入框 */}
+        {/* 行動端：AI 輸入框 */}
         <div className="mt-2 md:hidden">
           <AiRefineInput
             title=""
-            placeholder="例如：增加/删除页面... · Ctrl+Enter"
+            placeholder="例如：增加/刪除頁面... · Ctrl+Enter"
             onSubmit={handleAiRefineOutline}
             disabled={false}
             className="!p-0 !bg-transparent !border-0"
@@ -266,7 +266,7 @@ export const OutlineEditor: React.FC = () => {
         {/* 左侧：大纲列表 */}
         <div className="flex-1 p-3 md:p-6 overflow-y-auto min-h-0">
           <div className="max-w-4xl mx-auto">
-            {/* 操作按钮 */}
+            {/* 操作按鈕 */}
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-4 md:mb-6">
               <Button
                 variant="primary"
@@ -274,7 +274,7 @@ export const OutlineEditor: React.FC = () => {
                 onClick={addNewPage}
                 className="w-full sm:w-auto text-sm md:text-base"
               >
-                添加页面
+                新增頁面
               </Button>
               {currentProject.pages.length === 0 ? (
                 <Button
@@ -282,7 +282,7 @@ export const OutlineEditor: React.FC = () => {
                   onClick={handleGenerateOutline}
                   className="w-full sm:w-auto text-sm md:text-base"
                 >
-                  {currentProject.creation_type === 'outline' ? '解析大纲' : '自动生成大纲'}
+                  {currentProject.creation_type === 'outline' ? '解析大綱' : '自動生成大綱'}
                 </Button>
               ) : (
                 <Button
@@ -290,22 +290,22 @@ export const OutlineEditor: React.FC = () => {
                   onClick={handleGenerateOutline}
                   className="w-full sm:w-auto text-sm md:text-base"
                 >
-                  {currentProject.creation_type === 'outline' ? '重新解析大纲' : '重新生成大纲'}
+                  {currentProject.creation_type === 'outline' ? '重新解析大綱' : '重新生成大綱'}
                 </Button>
               )}
-              {/* 手机端：保存按钮 */}
-              <Button 
-                variant="secondary" 
-                size="sm" 
+              {/* 行動端：儲存按鈕 */}
+              <Button
+                variant="secondary"
+                size="sm"
                 icon={<Save size={16} className="md:w-[18px] md:h-[18px]" />}
                 onClick={async () => await saveAllPages()}
                 className="md:hidden w-full sm:w-auto text-sm md:text-base"
               >
-                保存
+                儲存
               </Button>
             </div>
 
-            {/* 项目资源列表（文件和图片） */}
+            {/* 專案資源列表（檔案和圖片） */}
             <ProjectResourcesList
               projectId={projectId || null}
               onFileClick={setPreviewFileId}
@@ -313,17 +313,17 @@ export const OutlineEditor: React.FC = () => {
               showImages={true}
             />
 
-            {/* 大纲卡片列表 */}
+            {/* 大綱卡片列表 */}
             {currentProject.pages.length === 0 ? (
               <div className="text-center py-20">
                 <div className="flex justify-center mb-4">
                   <FileText size={64} className="text-gray-300" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  还没有页面
+                  還沒有頁面
                 </h3>
                 <p className="text-gray-500 mb-6">
-                  点击"添加页面"手动创建，或"自动生成大纲"让 AI 帮你完成
+                  點擊「新增頁面」手動建立，或「自動生成大綱」讓 AI 幫你完成
                 </p>
               </div>
             ) : (
@@ -356,20 +356,20 @@ export const OutlineEditor: React.FC = () => {
           </div>
         </div>
 
-        {/* 右侧：预览 */}
+        {/* 右側：預覽 */}
         <div className="hidden md:block w-96 bg-white border-l border-gray-200 p-4 md:p-6 overflow-y-auto flex-shrink-0">
-          <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-3 md:mb-4">预览</h3>
-          
+          <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-3 md:mb-4">預覽</h3>
+
           {selectedPage ? (
             <div className="space-y-3 md:space-y-4">
               <div>
-                <div className="text-xs md:text-sm text-gray-500 mb-1">标题</div>
+                <div className="text-xs md:text-sm text-gray-500 mb-1">標題</div>
                 <div className="text-base md:text-lg font-semibold text-gray-900">
                   {selectedPage.outline_content.title}
                 </div>
               </div>
               <div>
-                <div className="text-xs md:text-sm text-gray-500 mb-2">要点</div>
+                <div className="text-xs md:text-sm text-gray-500 mb-2">要點</div>
                 <ul className="space-y-1.5 md:space-y-2">
                   {selectedPage.outline_content.points.map((point, idx) => (
                     <li key={idx} className="flex items-start text-sm md:text-base text-gray-700">
@@ -383,24 +383,24 @@ export const OutlineEditor: React.FC = () => {
           ) : (
             <div className="text-center py-8 md:py-10 text-gray-400">
               <div className="text-3xl md:text-4xl mb-2">👆</div>
-              <p className="text-sm md:text-base">点击左侧卡片查看详情</p>
+              <p className="text-sm md:text-base">點擊左側卡片查看詳情</p>
             </div>
           )}
         </div>
         
-        {/* 移动端预览：底部抽屉 */}
+        {/* 行動端預覽：底部抽屜 */}
         {selectedPage && (
           <div className="md:hidden fixed inset-x-0 bottom-0 bg-white border-t border-gray-200 p-4 max-h-[50vh] overflow-y-auto shadow-lg z-50">
-            <h3 className="text-sm font-semibold text-gray-900 mb-2">预览</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-2">預覽</h3>
             <div className="space-y-2">
               <div>
-                <div className="text-xs text-gray-500 mb-1">标题</div>
+                <div className="text-xs text-gray-500 mb-1">標題</div>
                 <div className="text-sm font-semibold text-gray-900">
                   {selectedPage.outline_content.title}
                 </div>
               </div>
               <div>
-                <div className="text-xs text-gray-500 mb-1">要点</div>
+                <div className="text-xs text-gray-500 mb-1">要點</div>
                 <ul className="space-y-1">
                   {selectedPage.outline_content.points.map((point, idx) => (
                     <li key={idx} className="flex items-start text-xs text-gray-700">

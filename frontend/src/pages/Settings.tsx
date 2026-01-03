@@ -7,7 +7,7 @@ import type { OutputLanguage } from '@/api/endpoints';
 import { OUTPUT_LANGUAGE_OPTIONS } from '@/api/endpoints';
 import type { Settings as SettingsType } from '@/types';
 
-// 配置项类型定义
+// 配置項類型定義
 type FieldType = 'text' | 'password' | 'number' | 'select' | 'buttons';
 
 interface FieldConfig {
@@ -16,9 +16,9 @@ interface FieldConfig {
   type: FieldType;
   placeholder?: string;
   description?: string;
-  sensitiveField?: boolean;  // 是否为敏感字段（如 API Key）
-  lengthKey?: keyof SettingsType;  // 用于显示已有长度的 key（如 api_key_length）
-  options?: { value: string; label: string }[];  // select 类型的选项
+  sensitiveField?: boolean;  // 是否為敏感欄位（如 API Key）
+  lengthKey?: keyof SettingsType;  // 用於顯示已有長度的 key（如 api_key_length）
+  options?: { value: string; label: string }[];  // select 類型的選項
   min?: number;
   max?: number;
 }
@@ -29,7 +29,7 @@ interface SectionConfig {
   fields: FieldConfig[];
 }
 
-// 初始表单数据
+// 初始表單數據
 const initialFormData = {
   ai_provider_format: 'gemini' as 'openai' | 'gemini',
   api_base_url: '',
@@ -46,7 +46,7 @@ const initialFormData = {
   output_language: 'zh' as OutputLanguage,
 };
 
-// 配置驱动的表单区块定义
+// 配置驅動的表單區塊定義
 const settingsSections: SectionConfig[] = [
   {
     title: '大模型 API 配置',
@@ -56,7 +56,7 @@ const settingsSections: SectionConfig[] = [
         key: 'ai_provider_format',
         label: 'AI 提供商格式',
         type: 'buttons',
-        description: '选择 API 请求格式，影响后端如何构造和发送请求。保存设置后生效。',
+        description: '選擇 API 請求格式，影響後端如何構造和發送請求。儲存設定後生效。',
         options: [
           { value: 'openai', label: 'OpenAI 格式' },
           { value: 'gemini', label: 'Gemini 格式' },
@@ -67,16 +67,16 @@ const settingsSections: SectionConfig[] = [
         label: 'API Base URL',
         type: 'text',
         placeholder: 'https://api.example.com',
-        description: '设置大模型提供商 API 的基础 URL',
+        description: '設定大模型提供商 API 的基礎 URL',
       },
       {
         key: 'api_key',
         label: 'API Key',
         type: 'password',
-        placeholder: '输入新的 API Key',
+        placeholder: '輸入新的 API Key',
         sensitiveField: true,
         lengthKey: 'api_key_length',
-        description: '留空则保持当前设置不变，输入新值则更新',
+        description: '留空則保持目前設定不變，輸入新值則更新',
       },
     ],
   },
@@ -86,24 +86,24 @@ const settingsSections: SectionConfig[] = [
     fields: [
       {
         key: 'text_model',
-        label: '文本大模型',
+        label: '文字大模型',
         type: 'text',
-        placeholder: '留空使用环境变量配置 (如: gemini-2.0-flash-exp)',
-        description: '用于生成大纲、描述等文本内容的模型名称',
+        placeholder: '留空使用環境變數配置 (如: gemini-2.0-flash-exp)',
+        description: '用於生成大綱、描述等文字內容的模型名稱',
       },
       {
         key: 'image_model',
-        label: '图像生成模型',
+        label: '圖像生成模型',
         type: 'text',
-        placeholder: '留空使用环境变量配置 (如: imagen-3.0-generate-001)',
-        description: '用于生成页面图片的模型名称',
+        placeholder: '留空使用環境變數配置 (如: imagen-3.0-generate-001)',
+        description: '用於生成頁面圖片的模型名稱',
       },
       {
         key: 'image_caption_model',
-        label: '图片识别模型',
+        label: '圖片識別模型',
         type: 'text',
-        placeholder: '留空使用环境变量配置 (如: gemini-2.0-flash-exp)',
-        description: '用于识别参考文件中的图片并生成描述',
+        placeholder: '留空使用環境變數配置 (如: gemini-2.0-flash-exp)',
+        description: '用於識別參考檔案中的圖片並生成描述',
       },
     ],
   },
@@ -115,29 +115,29 @@ const settingsSections: SectionConfig[] = [
         key: 'mineru_api_base',
         label: 'MinerU API Base',
         type: 'text',
-        placeholder: '留空使用环境变量配置 (如: https://mineru.net)',
-        description: 'MinerU 服务地址，用于解析参考文件',
+        placeholder: '留空使用環境變數配置 (如: https://mineru.net)',
+        description: 'MinerU 服務地址，用於解析參考檔案',
       },
       {
         key: 'mineru_token',
         label: 'MinerU Token',
         type: 'password',
-        placeholder: '输入新的 MinerU Token',
+        placeholder: '輸入新的 MinerU Token',
         sensitiveField: true,
         lengthKey: 'mineru_token_length',
-        description: '留空则保持当前设置不变，输入新值则更新',
+        description: '留空則保持目前設定不變，輸入新值則更新',
       },
     ],
   },
   {
-    title: '图像生成配置',
+    title: '圖像生成配置',
     icon: <Image size={20} />,
     fields: [
       {
         key: 'image_resolution',
-        label: '图像清晰度（某些OpenAI格式中转调整该值无效）',
+        label: '圖像清晰度（某些 OpenAI 格式中轉調整該值無效）',
         type: 'select',
-        description: '更高的清晰度会生成更详细的图像，但需要更长时间',
+        description: '更高的清晰度會生成更詳細的圖像，但需要更長時間',
         options: [
           { value: '1K', label: '1K (1024px)' },
           { value: '2K', label: '2K (2048px)' },
@@ -147,43 +147,43 @@ const settingsSections: SectionConfig[] = [
     ],
   },
   {
-    title: '性能配置',
+    title: '效能配置',
     icon: <Zap size={20} />,
     fields: [
       {
         key: 'max_description_workers',
-        label: '描述生成最大并发数',
+        label: '描述生成最大並發數',
         type: 'number',
         min: 1,
         max: 20,
-        description: '同时生成描述的最大工作线程数 (1-20)，越大速度越快',
+        description: '同時生成描述的最大工作執行緒數 (1-20)，越大速度越快',
       },
       {
         key: 'max_image_workers',
-        label: '图像生成最大并发数',
+        label: '圖像生成最大並發數',
         type: 'number',
         min: 1,
         max: 20,
-        description: '同时生成图像的最大工作线程数 (1-20)，越大速度越快',
+        description: '同時生成圖像的最大工作執行緒數 (1-20)，越大速度越快',
       },
     ],
   },
   {
-    title: '输出语言设置',
+    title: '輸出語言設定',
     icon: <Globe size={20} />,
     fields: [
       {
         key: 'output_language',
-        label: '默认输出语言',
+        label: '預設輸出語言',
         type: 'buttons',
-        description: 'AI 生成内容时使用的默认语言',
+        description: 'AI 生成內容時使用的預設語言',
         options: OUTPUT_LANGUAGE_OPTIONS,
       },
     ],
   },
 ];
 
-// Settings 组件 - 纯嵌入模式（可复用）
+// Settings 組件 - 純嵌入模式（可複用）
 export const Settings: React.FC = () => {
   const { show, ToastContainer } = useToast();
   const { confirm, ConfirmDialog } = useConfirm();
@@ -220,9 +220,9 @@ export const Settings: React.FC = () => {
         });
       }
     } catch (error: any) {
-      console.error('加载设置失败:', error);
+      console.error('載入設定失敗:', error);
       show({
-        message: '加载设置失败: ' + (error?.message || '未知错误'),
+        message: '載入設定失敗: ' + (error?.message || '未知錯誤'),
         type: 'error'
       });
     } finally {
@@ -249,13 +249,13 @@ export const Settings: React.FC = () => {
       const response = await api.updateSettings(payload);
       if (response.data) {
         setSettings(response.data);
-        show({ message: '设置保存成功', type: 'success' });
+        show({ message: '設定儲存成功', type: 'success' });
         setFormData(prev => ({ ...prev, api_key: '', mineru_token: '' }));
       }
     } catch (error: any) {
-      console.error('保存设置失败:', error);
+      console.error('儲存設定失敗:', error);
       show({
-        message: '保存设置失败: ' + (error?.response?.data?.error?.message || error?.message || '未知错误'),
+        message: '儲存設定失敗: ' + (error?.response?.data?.error?.message || error?.message || '未知錯誤'),
         type: 'error'
       });
     } finally {
@@ -265,7 +265,7 @@ export const Settings: React.FC = () => {
 
   const handleReset = () => {
     confirm(
-      '将把大模型、图像生成和并发等所有配置恢复为环境默认值，已保存的自定义设置将丢失，确定继续吗？',
+      '將把大模型、圖像生成和並發等所有配置恢復為環境預設值，已儲存的自訂設定將遺失，確定繼續嗎？',
       async () => {
         setIsSaving(true);
         try {
@@ -287,12 +287,12 @@ export const Settings: React.FC = () => {
               image_caption_model: response.data.image_caption_model || '',
               output_language: response.data.output_language || 'zh',
             });
-            show({ message: '设置已重置', type: 'success' });
+            show({ message: '設定已重置', type: 'success' });
           }
         } catch (error: any) {
-          console.error('重置设置失败:', error);
+          console.error('重置設定失敗:', error);
           show({
-            message: '重置设置失败: ' + (error?.message || '未知错误'),
+            message: '重置設定失敗: ' + (error?.message || '未知錯誤'),
             type: 'error'
           });
         } finally {
@@ -300,8 +300,8 @@ export const Settings: React.FC = () => {
         }
       },
       {
-        title: '确认重置为默认配置',
-        confirmText: '确定重置',
+        title: '確認重置為預設配置',
+        confirmText: '確定重置',
         cancelText: '取消',
         variant: 'warning',
       }
@@ -370,9 +370,9 @@ export const Settings: React.FC = () => {
       );
     }
 
-    // text, password, number 类型
+    // text, password, number 類型
     const placeholder = field.sensitiveField && settings && field.lengthKey
-      ? `已设置（长度: ${settings[field.lengthKey]}）`
+      ? `已設定（長度: ${settings[field.lengthKey]}）`
       : field.placeholder || '';
 
     return (
@@ -401,7 +401,7 @@ export const Settings: React.FC = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Loading message="加载设置中..." />
+        <Loading message="載入設定中..." />
       </div>
     );
   }
